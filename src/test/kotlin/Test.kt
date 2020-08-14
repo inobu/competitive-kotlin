@@ -1,15 +1,19 @@
 import org.junit.jupiter.api.Test
+import org.junit.platform.commons.annotation.Testable
 import kotlin.test.assertEquals
 
+@Testable
 class Test {
 
     @Test
     fun upperBoundaryTest() {
-        solve(1, 1, listOf(1))
+        val (k, s) = listOf(2, 2)
+//        solve(k, s)
     }
 
     @Test
     fun lowerBoundaryTest() {
-        assertEquals(0, solve(0, 1, listOf(1)))
+        val (k, s) = listOf(5, 15)
+        assertEquals(6, solve("B"))
     }
 }

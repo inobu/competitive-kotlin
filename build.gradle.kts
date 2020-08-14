@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 buildscript {
     repositories {
         mavenCentral()
@@ -19,13 +21,6 @@ plugins {
 
 group = "competive"
 version = "1.0-SNAPSHOT"
-
-val compileKotlin: org.jetbrains.kotlin.gradle.tasks.KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    freeCompilerArgs = listOf("-Xjsr305=strict")
-    jvmTarget = "1.8"
-}
-
 
 repositories {
     mavenCentral()
@@ -56,4 +51,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.2.0")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
     testImplementation("org.junit.platform:junit-platform-console:1.2.0")
+}
+
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "1.8"
+    }
 }
